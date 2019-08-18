@@ -1,0 +1,6 @@
+Średnia wypłata: 5300.0
+Najniższa wypłata: 4800
+Najwyższa wypłata: 6000
+nullLiczba pracowników w dzialeManagement: 1
+Liczba pracowników w dzialeit: 2
+Liczba pracowników w dzialeSupport: 1
