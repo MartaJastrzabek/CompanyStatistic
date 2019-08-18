@@ -18,12 +18,8 @@ public class CompanyTest {
         }
         employees = readFile(file, countLineNumber);
 
-
-
         CompanyStatistics statistics = new CompanyStatistics(employees);
         writeFile(outputFile, statistics);
-
-
     }
 
     private static void writeFile(File outputFile, CompanyStatistics statistics) {
@@ -46,6 +42,7 @@ public class CompanyTest {
             int i = 0;
             while ((line = br.readLine()) != null){
                 String[] employee = line.split(";");
+                // department name .toUpperCase for easier comparision
                 employees[i] = new Employee(employee[0], employee[1], employee[2], employee[3].toUpperCase(), Integer.parseInt(employee[4]));
                 i++;
             }

@@ -50,23 +50,16 @@ public class CompanyStatistics {
     }
 
     private String[] createDepartamentArray(){
-        String[] departaments = new String[3];
-        int counter = 0;
+        String departments = "";
         for (Employee e : employees){
-            boolean isFound = false;
-            for (int i = 0; i < departaments.length; i++){
-                if(e.getDepartment().equals(departaments[i])){
-                    isFound = true;
-                    break;
-                }
-            }
-            if(!isFound){
-                departaments[counter] = e.getDepartment();
-                counter++;
+            if(departments.contains(e.getDepartment())){
+                continue;
+            } else {
+                departments += e.getDepartment() + ";";
             }
         }
-        System.out.println(Arrays.toString(departaments));
-        return departaments;
+        String[] departamentsArray = departments.split(";");
+        return departamentsArray;
     }
 
     private int departamentEmployeesNumber(String department){
@@ -79,18 +72,15 @@ public class CompanyStatistics {
         return counter;
     }
 
-
-
     private String getDepartamentsEmployeesNumber(){
         String[] departments = createDepartamentArray();
         int[] employeesNumber = new int[departments.length];
-        String toPrint = null;
+        String toPrint = "";
 
         for(int i = 0; i < departments.length; i++){
             employeesNumber[i] = departamentEmployeesNumber(departments[i]);
             toPrint += "Liczba pracowników w dziale " + departments[i] + ": " + employeesNumber[i] + "\n";
         }
-
         return toPrint;
     }
 
