@@ -8,13 +8,11 @@ public class CompanyStatistics {
     }
 
     private double averageSalary(){
-        int counter = 0;
         int salarySum = 0;
         for(Employee e : employees){
             salarySum += e.getSalary();
-            counter++;
         }
-        return salarySum/counter;
+        return salarySum/employees.length;
     }
 
     public String getAverageSalary () {
@@ -52,9 +50,7 @@ public class CompanyStatistics {
     private String[] createDepartamentArray(){
         String departments = "";
         for (Employee e : employees){
-            if(departments.contains(e.getDepartment())){
-                continue;
-            } else {
+            if(!departments.contains(e.getDepartment())){
                 departments += e.getDepartment() + ";";
             }
         }
